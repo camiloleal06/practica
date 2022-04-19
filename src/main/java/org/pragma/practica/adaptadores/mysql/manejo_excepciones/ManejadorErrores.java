@@ -41,7 +41,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
         @ExceptionHandler({ Exception.class })
         @ResponseBody
         public ErrorMessage exception(Exception exception) {
-            exception.printStackTrace();
             return new ErrorMessage(exception);
         }
 
