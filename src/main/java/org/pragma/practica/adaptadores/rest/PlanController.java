@@ -5,10 +5,9 @@ import org.pragma.practica.dominio.modelo.Plan;
 import org.pragma.practica.dominio.puertos.in_ports.PlanService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/plan")
@@ -20,6 +19,22 @@ public class PlanController {
     public ResponseEntity<Plan> getPlanById(@PathVariable Integer id) {
         return new ResponseEntity<>(planService.findPlanById(id), HttpStatus.OK);
     }
+
+    @GetMapping
+    public ResponseEntity<List<Plan>> getAllPlanes() {
+        return new ResponseEntity<>(planService.findAllPlanes(), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Plan> createPlan(@RequestBody Plan plan) {
+        return new ResponseEntity<>(planService.savePlan(plan), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Plan> updatePlan(@RequestBody Plan plan, Integer id) {
+        return new ResponseEntity<>(planService.updatePlan(plan,id), HttpStatus.OK);
+    }
+
 
 
 }
