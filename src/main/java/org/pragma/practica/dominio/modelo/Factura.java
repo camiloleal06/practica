@@ -1,19 +1,21 @@
 package org.pragma.practica.dominio.modelo;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Plan {
+public class Factura {
     private Integer id;
-    private String descripcion;
-    private String anchodebanda;
-    private int precio;
-  }
+    private String numeroFactura;
+    private LocalDate fecha;
+    private boolean estado;
+    private Cliente cliente;
+}
