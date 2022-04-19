@@ -12,6 +12,7 @@ public interface ClienteMapper {
     ClienteDto toClienteDto(Cliente cliente);
 
     @Mapping(target = "plan.id", source = "clienteDto.planId")
+    @Mapping(target = "id", ignore = true)
     Cliente toCliente(ClienteDto clienteDto);
 
 }
