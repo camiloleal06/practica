@@ -1,11 +1,10 @@
-package org.pragma.practica.dominio.puertos;
+package org.pragma.practica.dominio.puertos.in_ports;
 
 import org.pragma.practica.dominio.modelo.Plan;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
-public interface PlanPersistence {
+
+public interface PlanService {
 
     Plan findPlanById(Integer id);
 

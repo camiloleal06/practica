@@ -1,15 +1,18 @@
-package org.pragma.practica.dominio.puertos;
+package org.pragma.practica.dominio.puertos.in_ports;
 
 import org.pragma.practica.dominio.modelo.Factura;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
-public interface FacturaPersistence {
+
+
+public interface FacturaService {
 
     Factura findFacturaById(Integer id);
+
     List<Factura> findAllFacturas();
-    Factura saveFactura (Factura factura);
+
+    Factura saveFactura(Factura factura);
+
     Factura updateFactura(Factura factura, Integer id);
 
 }
