@@ -44,8 +44,9 @@ public class ClienteController {
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> createCliente(@RequestBody ClienteDto clienteDto) {
-        return new ResponseEntity<>(clienteInterface.saveCliente(clienteMapper.toCliente(clienteDto)),
+    public ResponseEntity<ClienteDto> createCliente(@RequestBody ClienteDto clienteDto) {
+        return new ResponseEntity<>(
+                clienteMapper.toClienteDto(clienteInterface.saveCliente(clienteMapper.toCliente(clienteDto))),
                 HttpStatus.CREATED);
     }
 

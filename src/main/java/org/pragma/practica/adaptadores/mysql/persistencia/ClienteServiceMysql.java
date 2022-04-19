@@ -14,8 +14,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class ClienteServiceMysql implements ClientePersistence {
 
-    private final ClienteRepository clienteRepository;
-    private final ClienteEntityMapper mapper;
+    private ClienteRepository clienteRepository;
+    private ClienteEntityMapper mapper;
 
     public ClienteServiceMysql(ClienteRepository clienteRepository, ClienteEntityMapper mapper) {
         this.clienteRepository = clienteRepository;
