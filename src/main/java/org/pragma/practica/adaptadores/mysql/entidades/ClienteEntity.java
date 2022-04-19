@@ -1,7 +1,6 @@
 package org.pragma.practica.adaptadores.mysql.entidades;
 
 import lombok.*;
-import org.pragma.practica.dominio.modelo.Plan;
 
 import javax.persistence.*;
 
@@ -24,5 +23,5 @@ public class ClienteEntity {
     private String direccion;
     private int diaPago;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Plan plan;
+    private PlanEntity plan;
 }
