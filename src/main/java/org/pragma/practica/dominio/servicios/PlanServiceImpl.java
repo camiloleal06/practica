@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class PlanServiceImpl implements PlanInterface {
 
-    private PlanPersistence planPersistence;
+    private final PlanPersistence planPersistence;
 
     public PlanServiceImpl(PlanPersistence planPersistence) {
         this.planPersistence = planPersistence;

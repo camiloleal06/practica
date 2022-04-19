@@ -1,6 +1,5 @@
 package org.pragma.practica.adaptadores.mysql.persistencia;
 
-import lombok.AllArgsConstructor;
 import org.pragma.practica.adaptadores.mysql.dao.PlanRepository;
 import org.pragma.practica.adaptadores.mysql.entidades.PlanEntity;
 import org.pragma.practica.dominio.excepciones.NotFoundException;
@@ -11,12 +10,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
-@AllArgsConstructor
 @Repository
 public class PlanServiceMysql implements PlanPersistence {
 
     private PlanRepository planRepository;
+
+    public PlanServiceMysql(PlanRepository planRepository) {
+        this.planRepository = planRepository;
+    }
 
     @Override
     public Plan findPlanById(Integer id) {

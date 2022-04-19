@@ -1,5 +1,6 @@
 package org.pragma.practica.dominio.modelo;
 
+import java.math.BigDecimal;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,5 +16,5 @@ public class Plan {
     private Integer id;
     private String descripcion;
     private String anchodebanda;
-    private int precio;
+    private BigDecimal precio;
 }

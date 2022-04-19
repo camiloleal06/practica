@@ -3,8 +3,11 @@ package org.pragma.practica.dominio.servicios;
 import org.pragma.practica.dominio.modelo.Cliente;
 import org.pragma.practica.dominio.puertos.in_ports.ClienteInterface;
 import org.pragma.practica.dominio.puertos.out_ports.ClientePersistence;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+@Service
 public class ClienteServiceImpl implements ClienteInterface {
 
     private final ClientePersistence clientePersistence;

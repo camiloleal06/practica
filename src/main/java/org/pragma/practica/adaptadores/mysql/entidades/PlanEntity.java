@@ -1,11 +1,22 @@
 package org.pragma.practica.adaptadores.mysql.entidades;
 
+import java.math.BigDecimal;
 
-import lombok.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.pragma.practica.dominio.modelo.Plan;
 import org.springframework.beans.BeanUtils;
 
-import javax.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.var;
 
 @Getter
 @Setter
@@ -20,7 +31,7 @@ public class PlanEntity {
     private Integer id;
     private String descripcion;
     private String anchodebanda;
-    private int precio;
+    private BigDecimal precio;
 
     public PlanEntity(Plan plan) {
         BeanUtils.copyProperties(plan, this);
