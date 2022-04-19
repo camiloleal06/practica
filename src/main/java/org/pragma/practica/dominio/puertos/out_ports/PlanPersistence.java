@@ -1,6 +1,7 @@
-package org.pragma.practica.dominio.puertos;
+package org.pragma.practica.dominio.puertos.out_ports;
 
 import org.pragma.practica.dominio.modelo.Plan;
+
 
 import java.util.List;
 

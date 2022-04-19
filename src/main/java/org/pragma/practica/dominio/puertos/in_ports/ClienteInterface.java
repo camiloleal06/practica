@@ -1,12 +1,19 @@
-package org.pragma.practica.dominio.puertos;
+package org.pragma.practica.dominio.puertos.in_ports;
 
 import org.pragma.practica.dominio.modelo.Cliente;
 
 import java.util.List;
 
-public interface ClientePersistence {
+
+public interface ClienteInterface {
+
     Cliente findClienteById(Integer id);
+
     Cliente findClienteByIdentificacion(String identificacion);
+
     List<Cliente> findAllClientes();
+
     Cliente saveCliente(Cliente cliente);
+
+    Cliente updateCliente(Cliente cliente, Integer id);
 }
