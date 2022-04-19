@@ -13,4 +13,6 @@ public interface ClienteService {
     List<Cliente> findAllClientes();
 
     Cliente saveCliente(Cliente cliente);
+
+    Cliente updateCliente(Cliente cliente, Integer id);
 }
