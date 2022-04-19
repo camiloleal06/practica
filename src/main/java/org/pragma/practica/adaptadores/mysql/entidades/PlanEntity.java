@@ -27,7 +27,7 @@ public class PlanEntity {
     }
 
     public Plan toPlan() {
-        Plan plan = new Plan();
+        var plan = new Plan();
         BeanUtils.copyProperties(this, plan);
         return plan;
     }
