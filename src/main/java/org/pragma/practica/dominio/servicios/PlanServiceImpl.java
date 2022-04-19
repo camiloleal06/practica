@@ -1,16 +1,20 @@
 package org.pragma.practica.dominio.servicios;
 
-import lombok.AllArgsConstructor;
 import org.pragma.practica.dominio.modelo.Plan;
-import org.pragma.practica.dominio.puertos.in_ports.PlanService;
+import org.pragma.practica.dominio.puertos.in_ports.PlanInterface;
 import org.pragma.practica.dominio.puertos.out_ports.PlanPersistence;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@AllArgsConstructor
-public class PlanServiceImpl implements PlanService {
+@Service
+public class PlanServiceImpl implements PlanInterface {
 
     private PlanPersistence planPersistence;
+
+    public PlanServiceImpl(PlanPersistence planPersistence) {
+        this.planPersistence = planPersistence;
+    }
 
     @Override
     public Plan findPlanById(Integer id) {

@@ -5,7 +5,8 @@ import org.pragma.practica.dominio.modelo.Cliente;
 import java.util.List;
 
 
-public interface ClienteService {
+public interface ClienteInterface {
+
     Cliente findClienteById(Integer id);
 
     Cliente findClienteByIdentificacion(String identificacion);

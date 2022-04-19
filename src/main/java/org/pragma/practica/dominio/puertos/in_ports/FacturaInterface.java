@@ -5,7 +5,7 @@ import org.pragma.practica.dominio.modelo.Factura;
 import java.util.List;
 
 
-public interface FacturaService {
+public interface FacturaInterface {
 
     Factura findFacturaById(Integer id);
 

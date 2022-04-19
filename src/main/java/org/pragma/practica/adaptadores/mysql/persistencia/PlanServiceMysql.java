@@ -5,12 +5,16 @@ import org.pragma.practica.adaptadores.mysql.dao.PlanRepository;
 import org.pragma.practica.adaptadores.mysql.entidades.PlanEntity;
 import org.pragma.practica.dominio.modelo.Plan;
 import org.pragma.practica.dominio.puertos.out_ports.PlanPersistence;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 @AllArgsConstructor
+@Repository
 public class PlanServiceMysql implements PlanPersistence {
+
     private PlanRepository planRepository;
 
     @Override

@@ -4,7 +4,7 @@ import org.pragma.practica.dominio.modelo.Plan;
 
 import java.util.List;
 
-public interface PlanService {
+public interface PlanInterface {
 
     Plan findPlanById(Integer id);
 

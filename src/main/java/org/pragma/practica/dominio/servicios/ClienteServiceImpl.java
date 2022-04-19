@@ -1,16 +1,19 @@
 package org.pragma.practica.dominio.servicios;
 
-import lombok.AllArgsConstructor;
 import org.pragma.practica.dominio.modelo.Cliente;
-import org.pragma.practica.dominio.puertos.in_ports.ClienteService;
+import org.pragma.practica.dominio.puertos.in_ports.ClienteInterface;
 import org.pragma.practica.dominio.puertos.out_ports.ClientePersistence;
-
+import org.springframework.stereotype.Service;
 import java.util.List;
 
-@AllArgsConstructor
-public class ClienteServiceImpl implements ClienteService {
+@Service
+public class ClienteServiceImpl implements ClienteInterface {
 
     private ClientePersistence clientePersistence;
+
+    public ClienteServiceImpl(ClientePersistence clientePersistence) {
+        this.clientePersistence = clientePersistence;
+    }
 
     @Override
     public Cliente findClienteById(Integer id) {
