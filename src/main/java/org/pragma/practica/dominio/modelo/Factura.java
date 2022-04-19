@@ -1,16 +1,15 @@
 package org.pragma.practica.dominio.modelo;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.time.LocalDate;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 
 public class Factura {
     private Integer id;
