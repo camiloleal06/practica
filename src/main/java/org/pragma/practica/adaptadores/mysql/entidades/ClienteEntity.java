@@ -1,6 +1,8 @@
 package org.pragma.practica.adaptadores.mysql.entidades;
 
 import lombok.*;
+import org.pragma.practica.dominio.modelo.Cliente;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 
@@ -24,4 +26,15 @@ public class ClienteEntity {
     private int diaPago;
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private PlanEntity plan;
+
+    public ClienteEntity(Cliente cliente) {
+        BeanUtils.copyProperties(cliente, this);
+    }
+
+    public Cliente toCliente() {
+        var cliente = new Cliente();
+        BeanUtils.copyProperties(this, cliente);
+        return cliente;
+    }
+
 }
