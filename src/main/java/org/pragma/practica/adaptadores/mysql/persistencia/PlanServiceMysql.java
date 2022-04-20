@@ -2,7 +2,6 @@ package org.pragma.practica.adaptadores.mysql.persistencia;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.pragma.practica.adaptadores.mysql.dao.PlanRepository;
 import org.pragma.practica.adaptadores.mysql.mapper.PlanEntityMapper;
 import org.pragma.practica.dominio.excepciones.NotFoundException;
@@ -23,12 +22,17 @@ public class PlanServiceMysql implements PlanPersistence {
 
     @Override
     public Plan findPlanById(Integer id) {
-        return mapper.toPlan(planRepository.findById(id).orElseThrow(() -> new NotFoundException("No Existe el plan")));
+        return mapper.toPlan(planRepository.findById(id)
+                    .orElseThrow(() -> new NotFoundException("No Existe el plan")));
     }
 
     @Override
     public List<Plan> findAllPlanes() {
-        return planRepository.findAll().stream().map(mapper::toPlan).collect(Collectors.toList());
+        return planRepository
+                .findAll()
+                .stream()
+                .map(mapper::toPlan)
+                .collect(Collectors.toList());
     }
 
     @Override

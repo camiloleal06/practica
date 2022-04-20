@@ -18,6 +18,7 @@ import org.pragma.practica.dominio.puertos.out_ports.PlanPersistence;
 class PlanServiceImplTest {
     private final PlanPersistence planService = Mockito.mock(PlanPersistence.class);
     PlanServiceImpl sut = new PlanServiceImpl(planService);
+
     private final static int ID = 1;
     Plan plan = new Plan();
     List<Plan> listPlan = List.of(plan);

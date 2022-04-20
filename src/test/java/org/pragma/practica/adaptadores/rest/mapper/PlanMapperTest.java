@@ -2,13 +2,9 @@ package org.pragma.practica.adaptadores.rest.mapper;
 
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
-import org.pragma.practica.adaptadores.rest.dto.ClienteDto;
 import org.pragma.practica.adaptadores.rest.dto.PlanDto;
-import org.pragma.practica.dominio.modelo.Cliente;
 import org.pragma.practica.dominio.modelo.Plan;
-
 import java.math.BigDecimal;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PlanMapperTest {
