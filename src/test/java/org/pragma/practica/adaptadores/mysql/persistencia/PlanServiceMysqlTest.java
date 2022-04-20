@@ -10,6 +10,8 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.pragma.practica.adaptadores.mysql.dao.PlanRepository;
 import org.pragma.practica.adaptadores.mysql.entidades.PlanEntity;
 import org.pragma.practica.adaptadores.mysql.mapper.PlanEntityMapper;
+import org.pragma.practica.dominio.excepciones.ConflictException;
+import org.pragma.practica.dominio.excepciones.NotFoundException;
 import org.pragma.practica.dominio.modelo.Plan;
 
 
@@ -19,6 +21,7 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.BDDMockito.then;
 import static org.mockito.Mockito.mock;
@@ -60,4 +63,13 @@ class PlanServiceMysqlTest {
         then(planRepository).should(timeout(100)).findById(1);
         then(planRepository).shouldHaveNoMoreInteractions();
     }
+
+    @Test
+    void shouldCallNotFoundExceptionTest() {
+        NotFoundException thrown = assertThrows(NotFoundException.class, () -> {
+            service.findPlanById(1);
+        }, "NotFoundException was expected");
+        Assertions.assertEquals("No Existe el plan", thrown.getMessage());
+    }
+
  }
