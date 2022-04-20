@@ -6,14 +6,7 @@ pipeline {
     }
     
     stages {
-        stage('Build') {
-            steps {
-                sh 'mvn test'
-            }
-        }
-        
-         
-          stage("SonarQube analysis") {
+           stage("SonarQube analysis") {
             agent any
             steps {
               withSonarQubeEnv('sonar') {
@@ -21,6 +14,10 @@ pipeline {
               }
             }
           }
-        
+     stage('Build') {
+            steps {
+                sh 'mvn test'
+            }
+        }
      }
 }
