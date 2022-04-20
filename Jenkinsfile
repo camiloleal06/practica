@@ -11,8 +11,11 @@ pipeline {
                 sh 'mvn install'
             }
         }
-        
-         
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+          
           stage("SonarQube analysis") {
             agent any
             steps {
