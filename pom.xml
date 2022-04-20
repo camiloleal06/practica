@@ -110,12 +110,12 @@
                         <goals>
                             <goal>report</goal>
                         </goals>
-                        <!-- default target/site/jacoco/* you can define your directory for code coverage report -->
+                        <!-- default target/site/jacoco/* se define la ruta code coverage report -->
                         <configuration>
                             <outputDirectory>target/jacoco-report</outputDirectory>
                              </configuration>
                     </execution>
-                    <!-- Define rule for successful build based on code code coverage criteria -->
+                    <!-- Se definen relgas y criterios para un coverage exitoso -->
                     <execution>
                         <id>jacoco-check</id>
                         <goals>
@@ -124,7 +124,7 @@
                         <configuration>
                             <rules>
                                 <rule>
-                                    <!-- When code coverage is 50% and no class missed then consider for successful build -->
+                                    <!-- El  coverage de los test debe ser de 70% -->
                                     <element>PACKAGE</element>
                                     <limits>
                                         <limit>
