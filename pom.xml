@@ -132,12 +132,7 @@
                                             <value>COVEREDRATIO</value>
                                             <minimum>0.2</minimum>
                                         </limit>
-                                        <limit>
-                                            <counter>CLASS</counter>
-                                            <value>MISSEDCOUNT</value>
-                                            <maximum>0</maximum>
-                                        </limit>
-                                    </limits>
+                                      </limits>
                                 </rule>
                             </rules>
                         </configuration>
