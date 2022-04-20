@@ -1,23 +1,26 @@
 package org.pragma.practica.dominio.servicios;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
-import org.pragma.practica.dominio.modelo.Cliente;
-import org.pragma.practica.dominio.modelo.Plan;
-import org.pragma.practica.dominio.puertos.out_ports.ClientePersistence;
-import org.pragma.practica.dominio.puertos.out_ports.PlanPersistence;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.pragma.practica.dominio.modelo.Cliente;
+import org.pragma.practica.dominio.puertos.out_ports.ClientePersistence;
 
 class ClienteServiceImplTest {
 
     private final ClientePersistence service = Mockito.mock(ClientePersistence.class);
     ClienteServiceImpl sut = new ClienteServiceImpl(service);
     private final static int ID = 1;
+    private final static String IDENTIFICACION = "73207639";
     Cliente cliente = new Cliente();
     List<Cliente> listCliente = List.of(cliente);
 
@@ -27,6 +30,14 @@ class ClienteServiceImplTest {
         assertNotEquals(null, sut.findClienteById(ID));
         verify(service, times(1)).findClienteById(ID);
     }
+
+    @Test
+    void shouldCallServiceFindClienteByIdentificacion() {
+        when(service.findClienteByIdentificacion(IDENTIFICACION)).thenReturn(cliente);
+        assertNotEquals(null, sut.findClienteByIdentificacion(IDENTIFICACION));
+        verify(service, times(1)).findClienteByIdentificacion(IDENTIFICACION);
+    }
+
     @Test
     void shouldCallServiceFindAllClientes() {
         when(service.findAllClientes()).thenReturn(listCliente);
@@ -41,10 +52,11 @@ class ClienteServiceImplTest {
         assertNotNull(sut.saveCliente(cliente));
         verify(service, times(1)).saveCliente(cliente);
     }
+
     @Test
     void shouldCallServiceUpdateCliente() {
         when(service.updateCliente(cliente, ID)).thenReturn(cliente);
-        assertNotNull(sut.updateCliente(cliente,ID));
-        verify(service, times(1)).updateCliente(cliente,ID);
+        assertNotNull(sut.updateCliente(cliente, ID));
+        verify(service, times(1)).updateCliente(cliente, ID);
     }
 }

@@ -13,8 +13,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class PlanServiceMysql implements PlanPersistence {
 
-    private PlanRepository planRepository;
-    private PlanEntityMapper mapper;
+    private final PlanRepository planRepository;
+    private final PlanEntityMapper mapper;
 
     public PlanServiceMysql(PlanRepository planRepository, PlanEntityMapper mapper) {
         this.planRepository = planRepository;

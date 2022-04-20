@@ -1,15 +1,19 @@
 package org.pragma.practica.dominio.servicios;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.pragma.practica.dominio.modelo.Plan;
 import org.pragma.practica.dominio.puertos.out_ports.PlanPersistence;
-
-import java.util.List;
-import java.util.Optional;
-
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
 class PlanServiceImplTest {
     private final PlanPersistence planService = Mockito.mock(PlanPersistence.class);
@@ -39,10 +43,11 @@ class PlanServiceImplTest {
         assertNotNull(sut.savePlan(plan));
         verify(planService, times(1)).savePlan(plan);
     }
+
     @Test
     void shouldCallServiceUpdatePlan() {
         when(planService.updatePlan(plan, ID)).thenReturn(plan);
-        assertNotNull(sut.updatePlan(plan,ID));
-        verify(planService, times(1)).updatePlan(plan,ID);
+        assertNotNull(sut.updatePlan(plan, ID));
+        verify(planService, times(1)).updatePlan(plan, ID);
     }
 }

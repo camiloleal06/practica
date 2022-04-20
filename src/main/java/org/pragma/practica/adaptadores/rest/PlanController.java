@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/v1/plan")
 public class PlanController {
 
-    private PlanInterface planService;
+    private final PlanInterface planService;
 
     public PlanController(PlanInterface planService) {
         this.planService = planService;
